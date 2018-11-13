@@ -4,7 +4,7 @@ const helper = require('./helper');
 class UniversalRouter extends RootRouter {
     constructor() {
         super();
-        this.router.get('/', this.handleServerSideRender.bind(this));
+        this.router.get('*', this.handleServerSideRender.bind(this));
         return this.router;
     }
 

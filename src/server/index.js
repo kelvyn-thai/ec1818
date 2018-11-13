@@ -3,12 +3,13 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
-const port = 3000;
+require('dotenv').config();
+const port =  process.env.PORT || 3000;
 const routers = require('./modules/Root/composeRouter');
 const preloader = require('./modules/Preloader');
 
 app.use(express.static('dist'));
-
+app.use(express.static('public'));
 // Use morgan to log request in dev mode
 app.use(morgan('dev'));
 app.use(bodyParser.json());

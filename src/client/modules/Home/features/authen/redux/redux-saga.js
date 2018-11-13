@@ -45,8 +45,6 @@ function* authorize(username, password) {
 function* watchLogin() {
     while (true) {
 
-        console.log('sequence', yield* authorize('', ''));
-
         const { username, password } = yield take(LOGIN_REQUEST);
 
         const task = yield fork(authorize, username, password)
