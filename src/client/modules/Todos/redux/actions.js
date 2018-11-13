@@ -1,8 +1,7 @@
-import { ADD_TODO, ADD_TODO_COMPLETED, ADD_TODO_FAIL, REMOVE_TODO, REMOVE_TODO_COMPLETED, REMOVE_TODO_FAIL, FETCH_TODOS, FETCH_TODOS_FAIL, FETCH_TODOS_COMPLETED } from "../constant";
-
-export const addTodo = () => ({type: ADD_TODO});
-export const addTodoCompleted = () => ({type: ADD_TODO_COMPLETED});
-export const addTodoFail = () => ({type: ADD_TODO_FAIL});
+import { 
+    REMOVE_TODO, REMOVE_TODO_COMPLETED, REMOVE_TODO_FAIL, 
+    FETCH_TODOS, FETCH_TODOS_FAIL, FETCH_TODOS_COMPLETED, 
+    FETCH_TODOS_REQUEST } from "../constant";
 
 export const removeTodo = () => ({type: REMOVE_TODO});
 export const removeTodoCompleted = () => ({type: REMOVE_TODO_COMPLETED});

@@ -1,33 +1,35 @@
 import { takeEvery, put} from 'redux-saga/effects';
 import { FETCH_TODOS_REQUEST, FETCH_TODOS, FETCHED_DATA, FETCH_TODOS_FAIL, FETCH_TODOS_COMPLETED } from '../constant';
 import { apiFetchTodos } from "../api";
+import { fetchTodos, fetchTodosCompleted,fetchTodosFail } from "./actions";
 
 
-function* requestFetchTodos(payload) {
+function* requestFetchTodos(action) {
+
     try {
-        
-        yield put(FETCH_TODOS);
+        yield put(fetchTodos());
 
-        const result = yield apiFetchTodos(payload);
-
+        const result = yield apiFetchTodos(action.payload);
+    
         const { data } =  result;
 
         if(data) {
-            yield put(FETCH_TODOS_COMPLETED, data);
+            yield put(fetchTodosCompleted(data));
         }
         else{ 
-            yield put(FETCH_TODOS_FAIL)
+            yield put(fetchTodosFail())
         }
 
     } catch (error) {
-        yield put(FETCH_TODOS_FAIL);
+        yield put(fetchTodosFail());
     }
 }
 
 function* watchRequestFetchTodos() {
+
     yield takeEvery(FETCH_TODOS_REQUEST, requestFetchTodos);
 }
 
 export default [
-    watchRequestFetchTodos()
+    watchRequestFetchTodos
 ]

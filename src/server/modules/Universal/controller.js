@@ -1,10 +1,9 @@
-const RootRouter = require('../Root/router');
+const RootRouter = require('../Root/controller');
 const helper = require('./helper');
 
 class UniversalRouter extends RootRouter {
     constructor() {
         super();
-
         this.router.get('/', this.handleServerSideRender.bind(this));
         return this.router;
     }
