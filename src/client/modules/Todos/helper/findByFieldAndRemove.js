@@ -1,0 +1,1 @@
+export default (items, item, field) => items.filter((obj) => obj[field] !== item[field])

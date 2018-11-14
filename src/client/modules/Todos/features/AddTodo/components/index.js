@@ -10,13 +10,9 @@ class AddToDo extends React.Component {
         }
     }
 
-    componentDidMount = () => {
-        console.log(this.props)
-    }
-
     handleAddTodo = () => {
         const { todo } = this.state;
-        this.props.addTodo();
+        this.props.addTodo(todo);
     }
 
     render() {

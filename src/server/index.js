@@ -1,23 +1,25 @@
 const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
 const app = express();
 require('dotenv').config();
-const port =  process.env.PORT || 3000;
-const routers = require('./modules/Root/composeRouter');
-const preloader = require('./modules/Preloader');
-
+const port = process.env.PORT || 3000;
 app.use(express.static('dist'));
-app.use(express.static('public'));
-// Use morgan to log request in dev mode
-app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cors());
-app.use(routers);
-preloader.initApp();
+app.get('*', (req, res, next) => {
+    const template = `
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>EC1818</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/javascript" src="bundle.js"></script></body>
+    </html>
+`;
 
+    return res.send(template);
+})
 
 
 app.listen(port, () => console.log('Server start at port ', port));

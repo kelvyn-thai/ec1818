@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../../../redux/store";
-import Todos from '../../Todos';
+import Todos from '../../Todos/components';
 import Authen from "../features/authen/components";
 import Home from "./Home";
 

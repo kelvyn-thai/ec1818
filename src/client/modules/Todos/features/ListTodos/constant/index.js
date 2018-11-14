@@ -1,0 +1,19 @@
+/**
+ * Actions
+ */
+
+export const REMOVE_TODO = "REMOVE_TODO";
+export const REMOVE_TODO_COMPLETED = "REMOVE_TODO_COMPLETED";
+export const REMOVE_TODO_FAIL = "REMOVE_TODO_FAIL";
+export const REQUEST_REMOVE_TODO = "REQUEST_REMOVE_TODO";
+
+export const CHANGE_STATUS_TODO = "CHANGE_STATUS_TODO";
+export const CHANGE_STATUS_TODO_COMPLETED = "CHANGE_STATUS_TODO_COMPLETED";
+export const CHANGE_STATUS_TODO_FAIL = "CHANGE_STATUS_TODO_FAIL";
+export const REQUEST_CHANGE_STATUS_TODO= "REQUEST_CHANGE_STATUS_TODO";
+
+/**
+ * API
+ */
+export const API_REMOVE_TODO = "/api/todos/remove-todo";
+export const API_UPDATE_TODO = "/api/todos/update-todo";

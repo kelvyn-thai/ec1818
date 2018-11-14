@@ -1,4 +1,4 @@
-import { todosSelector } from "../reselect";
+import { createTodoSelector } from "../reselect";
 import { requestFetchTodos } from "./actions";
 
 export const mapDispatchToProps = {
@@ -7,6 +7,6 @@ export const mapDispatchToProps = {
 
 export const mapStateToProps = state => {
     return {
-        todos: todosSelector(state.todos)
+        todos: createTodoSelector(state)        
     }
 }
