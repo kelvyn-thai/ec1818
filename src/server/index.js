@@ -3,6 +3,7 @@ const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 app.use(express.static('dist'));
+app.use(express.static('public'));
 app.get('*', (req, res, next) => {
     const template = `
     <html>
